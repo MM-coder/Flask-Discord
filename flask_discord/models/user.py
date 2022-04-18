@@ -220,6 +220,10 @@ class User(DiscordModelsBase):
         self.connections = UserConnection.fetch_from_api(cache=False)
         return self.connections
 
+    def get_member_roles_from_guild(self, id_: int) -> list:
+        request = self._request(f"/users/@me/guilds/{guild.id}/member")
+        print(request)
+        
 
 class Bot(User):
     """Class representing the client user itself."""
