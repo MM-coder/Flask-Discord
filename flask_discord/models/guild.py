@@ -39,6 +39,7 @@ class Guild(DiscordModelsBase):
         super().__init__(payload)
         self.id = int(self._payload["id"])
         self.name = self._payload["name"]
+        self.roles = self._payload["roles"]
         self.icon_hash = self._payload.get("icon")
         self.is_owner = self._payload.get("owner")
         self.permissions = self.__get_permissions(self._payload.get("permissions"))
